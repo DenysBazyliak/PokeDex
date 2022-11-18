@@ -1,0 +1,56 @@
+.pokeItemsWrapper{
+    grid-area: pokemonInfo;
+    position: fixed;
+    right:200px;
+    top:200px;
+    border: #64005a 1px solid;
+    color: #FFFFFF;
+    background-color: #242425;
+
+}
+.pokeItem{
+    background-color: #242425;
+    margin: 10px;
+    padding: 10px;
+    color: #FFFFFF;
+    border:2px solid #969292;
+}
+.pokeImg{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border: #ff0000 solid;
+    width: 100%;
+    max-width: 200px;
+    height: 300px;
+}
+.pokeName{
+    font-size: 20px ;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color: chocolate;
+
+}
+.pokeWrapper{
+    display: flex;
+    flex-wrap: wrap;
+
+
+}
+.pokeType{
+    padding-bottom: 5px;
+    margin: auto;
+    min-height: 30px;
+    min-width: 20px;
+    display: flex;
+    text-align: center;
+    border: #333020 solid;
+    background-color: #0e0e0d;
+    border-radius: 20%;
+    align-items: center;
+
+}
+.table{
+
+}

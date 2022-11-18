@@ -1,0 +1,15 @@
+.app{
+    display: grid;
+    width: 1200px;
+    margin: 0 auto;
+
+    grid-template-areas:
+    'header header'
+    'pokomenosList pokemonInfo';
+    grid-template-rows: 1fr;
+    grid-template-columns: 5fr 5fr;
+}
+
+
+
+
