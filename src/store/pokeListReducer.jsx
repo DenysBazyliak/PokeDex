@@ -2,6 +2,9 @@ import { pokemonAPI } from "../API/api";
 import { useSelector } from "react-redux";
 
 const SET_POKEMONS = "SET_POKEMONS";
+const SET_TYPE = "SET_TYPE";
+const IS_LOADING = "IS_LOADING";
+const FILTER_POKEMONS = "FILTER_POKEMONS";
 const SET_NEXT_URL = "SET_NEXT_URL";
 const ADD_POKEMONS = "ADD_POKEMONS";
 const ADD_POKEMON_TYPES = "ADD_POKEMON_TYPES";
@@ -11,11 +14,31 @@ let initialState = {
   pokemon: null,
   next: null,
   types: new Set(),
+  type: null,
+  isLoading: false,
 };
 
 export const setPokemons = (pokemons) => {
   return {
     type: SET_POKEMONS,
+    pokemons,
+  };
+};
+const buttonSwitch = (isLoading) => {
+  return {
+    type: IS_LOADING,
+    isLoading,
+  };
+};
+export const setType = (currentType) => {
+  return {
+    type: SET_TYPE,
+    currentType,
+  };
+};
+export const filterPokemons = (pokemons) => {
+  return {
+    type: FILTER_POKEMONS,
     pokemons,
   };
 };
@@ -50,6 +73,21 @@ const pokeListReducer = (state = initialState, action) => {
         ...state,
         pokemons: action.pokemons,
       };
+    case IS_LOADING:
+      return {
+        ...state,
+        isLoading: action.isLoading,
+      };
+    case SET_TYPE:
+      return {
+        ...state,
+        type: action.currentType,
+      };
+    case FILTER_POKEMONS:
+      return {
+        ...state,
+        pokemons: [...action.pokemons],
+      };
     case SET_NEW_POKEMON:
       return {
         ...state,
@@ -74,9 +112,14 @@ const pokeListReducer = (state = initialState, action) => {
       return state;
   }
 };
-export let fromSetToArray = (set) => {
-  return Array.from(set);
+export const filterPokemonArray = (pokemons, type) => (dispatch) => {
+  let filteredPokemons = pokemons.filter(
+    (el) => el.types[0].type.name === type
+  );
+  console.log("filteredPokemons", filteredPokemons);
+  dispatch(filterPokemons(filteredPokemons));
 };
+
 let typeSpreading = (pokemons) => (dispatch) => {
   let typesArray =
     pokemons?.map((el) => {
@@ -115,6 +158,7 @@ export const getNewPokemon = (pokemon) => {
 };
 
 export const loadNewPokemons = (next) => async (dispatch) => {
+  dispatch(buttonSwitch(true));
   let nextPokemonsData = await pokemonAPI.getNextPokemonAPI(next);
   dispatch(setNextUrl(nextPokemonsData.next));
   let nextPokemonsInfo = await Promise.all(
@@ -124,5 +168,6 @@ export const loadNewPokemons = (next) => async (dispatch) => {
   );
   dispatch(typeSpreading(nextPokemonsInfo));
   dispatch(addPokemons(nextPokemonsInfo));
+  dispatch(buttonSwitch(false));
 };
 export default pokeListReducer;

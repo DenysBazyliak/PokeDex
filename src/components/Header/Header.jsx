@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import style from "./Header.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { fromSetToArray, setPokemonTypes } from "../../store/pokeListReducer";
+
 import Filter from "./Filter/Filter";
 
 export const Header = (props) => {

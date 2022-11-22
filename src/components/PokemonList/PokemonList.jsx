@@ -12,12 +12,18 @@ const PokemonList = (props) => {
   const dispatch = useDispatch();
   const pokipoki = useSelector((state) => state.pokeListReducer.pokemons);
   const next = useSelector((state) => state.pokeListReducer.next);
+  const type = useSelector((state) => state.pokeListReducer.type);
+  const isLoading = useSelector((state) => state.pokeListReducer.isLoading);
   // console.log("next",next)
-  // console.log("pokipoki",pokipoki)
+  console.log("pokipoki", pokipoki);
   useEffect(() => {
     dispatch(getPokemonsAPI());
   }, []);
-  let pokemonItems = pokipoki.map((p) => <PokemonItem key={p.id} {...p} />);
+  let pokemonItems = pokipoki
+    .filter((el) =>
+      type ? el.types.some((el) => el.type.name === type) : true
+    )
+    .map((p) => <PokemonItem key={p.id} {...p} />);
   return (
     <div>
       <div>
@@ -26,6 +32,7 @@ const PokemonList = (props) => {
       <div className={style.superButtonWrapper}>
         <button
           className={style.superButton}
+          disabled={isLoading}
           onClick={() => {
             return dispatch(loadNewPokemons(next));
           }}
