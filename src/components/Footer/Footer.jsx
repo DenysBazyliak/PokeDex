@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import style from "./Footer.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { loadNewPokemons } from "../../store/pokeListReducer";
 import { Preloader } from "../../utilities/Preloader/Preloader";
-export const Footer = (props) => {
+export const Footer = () => {
   const next = useSelector((state) => state.pokeListReducer.next);
   const isLoading = useSelector((state) => state.pokeListReducer.isLoading);
   const dispatch = useDispatch();

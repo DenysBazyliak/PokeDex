@@ -1,11 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import style from "./Header.module.css";
-import { useDispatch, useSelector } from "react-redux";
 
-import Filter from "./Filter/Filter";
 
-export const Header = (props) => {
-  // console.log("types", types);
+export const Header = () => {
+
   return (
     <div className={style.header}>
       <h1 className={style.h1}>PokeDex</h1>
