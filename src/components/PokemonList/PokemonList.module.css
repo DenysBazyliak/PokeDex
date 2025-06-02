@@ -1,11 +1,12 @@
 .listWrapper{
     padding-left: 20px;
     padding-top: 15px;
-    position: center;
+    margin: 20px;
     grid-area: pokemonList;
-    display: grid;
-    grid-template-columns: 300px 300px 300px;
-    grid-template-rows: 250px 250px 250px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
 
 }
 .pokemonList{
