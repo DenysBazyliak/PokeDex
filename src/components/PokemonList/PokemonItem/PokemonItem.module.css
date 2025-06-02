@@ -154,15 +154,12 @@
 
 }
 .pokeType{
-    padding-bottom: 5px;
+    padding: 5px;
     margin: auto;
-    min-height: 30px;
-    min-width: 20px;
+    min-width: 50px;
     display: flex;
     text-align: center;
-    border: #333020 solid;
-    background-color: #0e0e0d;
-    border-radius: 20%;
+    border-radius: 15%;
     align-items: center;
-
+    justify-content: center;
 }

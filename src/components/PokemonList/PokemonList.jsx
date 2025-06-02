@@ -9,6 +9,7 @@ import pokeListReducer, {
 } from "../../store/pokeListReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { Preloader } from "../../utilities/Preloader/Preloader";
+
 const PokemonList = (props) => {
   const dispatch = useDispatch();
   const pokemons = useSelector((state) => state.pokeListReducer.pokemons);

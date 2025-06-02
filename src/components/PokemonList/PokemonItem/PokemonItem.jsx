@@ -14,6 +14,7 @@ const PokemonItem = (pokemon) => {
       >
         <div className={style.pokeImg}>
           <img
+            alt={pokemon.name}
             width={100}
             height={100}
             src={pokemon.sprites.other.dream_world.front_default}
@@ -25,8 +26,8 @@ const PokemonItem = (pokemon) => {
         <div className={style.pokeWrapper}>
           {pokemon.types.map((el) => {
             return (
-              <div key={el.slot} className={style.pokeType}>
-                <div className={style[el.type.name]}>{el.type.name}</div>
+              <div key={el.slot} className={`${style.pokeType} ${style[el.type.name]}`}>
+                {el.type.name}
               </div>
             );
           })}
