@@ -1,11 +1,15 @@
 .listWrapper{
+    padding-left: 20px;
+    padding-top: 15px;
     position: center;
     grid-area: pokemonList;
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 300px 300px 300px;
+    grid-template-rows: 250px 250px 250px;
 
 }
-.pokemonItem{
+.pokemonList{
+    margin-bottom: 70px;
 }
 .superButton{
     background-color: #0e0e0d;

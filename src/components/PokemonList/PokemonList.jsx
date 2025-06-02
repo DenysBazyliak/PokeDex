@@ -8,38 +8,26 @@ import pokeListReducer, {
   setNextUrl,
 } from "../../store/pokeListReducer";
 import { useDispatch, useSelector } from "react-redux";
+import { Preloader } from "../../utilities/Preloader/Preloader";
 const PokemonList = (props) => {
   const dispatch = useDispatch();
-  const pokipoki = useSelector((state) => state.pokeListReducer.pokemons);
-  const next = useSelector((state) => state.pokeListReducer.next);
+  const pokemons = useSelector((state) => state.pokeListReducer.pokemons);
   const type = useSelector((state) => state.pokeListReducer.type);
-  const isLoading = useSelector((state) => state.pokeListReducer.isLoading);
-  // console.log("next",next)
-  console.log("pokipoki", pokipoki);
   useEffect(() => {
     dispatch(getPokemonsAPI());
   }, []);
-  let pokemonItems = pokipoki
+  
+  let pokemonItems = pokemons
     .filter((el) =>
       type ? el.types.some((el) => el.type.name === type) : true
     )
     .map((p) => <PokemonItem key={p.id} {...p} />);
+  if (pokemons.length === 0) {
+    return <Preloader />;
+  }
   return (
-    <div>
-      <div>
-        <div className={style.listWrapper}>{pokemonItems}</div>
-      </div>
-      <div className={style.superButtonWrapper}>
-        <button
-          className={style.superButton}
-          disabled={isLoading}
-          onClick={() => {
-            return dispatch(loadNewPokemons(next));
-          }}
-        >
-          Load Pokemons
-        </button>
-      </div>
+    <div className={style.pokemonList}>
+      <div className={style.listWrapper}>{pokemonItems}</div>
     </div>
   );
 };

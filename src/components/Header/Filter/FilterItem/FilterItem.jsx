@@ -10,7 +10,10 @@ const FilterItem = (props) => {
     <div className={style.pokeType}>
       <button
         className={style[props.el]}
-        onClick={() => dispatch(setType(props.el))}
+        onClick={() => {
+          props.turnOffFilter();
+          dispatch(setType(props.el));
+        }}
       >
         {props.el}
       </button>

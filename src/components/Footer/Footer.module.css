@@ -1,0 +1,26 @@
+.footer{
+    grid-area: footer;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5)),
+            url("https://st2.depositphotos.com/8047136/11779/v/950/depositphotos_117792506-stock-illustration-game-balls-seamless-pattern.jpg");
+
+}
+.superButton{
+    background-color: #0e0e0d;
+    color: #ffffff;
+    width: 500px;
+    height: 50px;
+}
+.superButtonWrapper{
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+    padding-left: 10%;
+    padding-right: 10%;
+}

@@ -8,14 +8,14 @@ export const Header = (props) => {
   // console.log("types", types);
   return (
     <div className={style.header}>
-      <h1>
+      <span className={style.image}>
         <div>
-          <span>
+          <p className={style.p}>Poki-Poki</p>
+          <div className={style.filter}>
             <Filter />
-            <p className={style.p}>Pokedex</p>
-          </span>
+          </div>
         </div>
-      </h1>
+      </span>
     </div>
   );
 };

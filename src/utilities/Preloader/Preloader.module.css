@@ -1,0 +1,23 @@
+.icon{
+    animation: flash 1000ms infinite;
+    width: 100px;
+    height: 100px;
+}
+.dimmingDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    opacity: 0.5;
+}
+@keyframes flash {
+    0%, 50%, 100%{
+        opacity: 1;
+    }
+    25%, 75% {
+        opacity: 0;
+    }
+}

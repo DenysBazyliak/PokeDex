@@ -1,5 +1,4 @@
 import { pokemonAPI } from "../API/api";
-import { useSelector } from "react-redux";
 
 const SET_POKEMONS = "SET_POKEMONS";
 const SET_TYPE = "SET_TYPE";
@@ -146,12 +145,6 @@ export const getPokemonsAPI = () => async (dispatch) => {
   );
   dispatch(typeSpreading(pokemonsData));
   dispatch(setPokemons(pokemonsData));
-  // console.log("pokemonsData", pokemonsData);
-  // forEach(el=>{
-  //     console.log("el",el)
-  //     pokemonAPI.getPokemonInfo(el.url)
-  // })
-  // console.log("data",data)
 };
 export const getNewPokemon = (pokemon) => {
   return setNewPokemon(pokemon);
@@ -159,6 +152,7 @@ export const getNewPokemon = (pokemon) => {
 
 export const loadNewPokemons = (next) => async (dispatch) => {
   dispatch(buttonSwitch(true));
+
   let nextPokemonsData = await pokemonAPI.getNextPokemonAPI(next);
   dispatch(setNextUrl(nextPokemonsData.next));
   let nextPokemonsInfo = await Promise.all(

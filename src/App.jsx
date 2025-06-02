@@ -5,6 +5,7 @@ import PokemonList from "./components/PokemonList/PokemonList";
 import PokemonInfo from "./components/PokemonInfo/PokemonInfo";
 import { Provider } from "react-redux";
 import store from "./store/store";
+import { Footer } from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Header />
         <PokemonList />
         <PokemonInfo />
+        <Footer />
       </div>
     </Provider>
   );

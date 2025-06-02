@@ -1,16 +1,26 @@
-.header{
-    margin:10px 50px 10px 50px;
-
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     grid-area: header;
+    position: sticky;
+    top: 0;
+    background-image: url("https://st2.depositphotos.com/8047136/11779/v/950/depositphotos_117792506-stock-illustration-game-balls-seamless-pattern.jpg     ");
 
 }
+.filter{
+    order:1
+}
 .p{
-    margin-left: auto ;
-    margin-right: auto ;
-    width: 200px;
-    border:  4mm ridge rgba(211, 220, 50, .6);
-    font-size: 40px;
+    order:2;
+    height: 30px;
+    width:100px;
+    font-size: 16px;
     text-align: center;
+    color: #ffffff;
+    border: black;
+    background-color: #0e0e0d;
 }
 .renderButton{
     width: 100px;
