@@ -14,6 +14,7 @@ const PokemonList = (props) => {
   const dispatch = useDispatch();
   const pokemons = useSelector((state) => state.pokeListReducer.pokemons);
   const type = useSelector((state) => state.pokeListReducer.type);
+
   useEffect(() => {
     dispatch(getPokemonsAPI());
   }, []);

@@ -15,23 +15,24 @@ const PokemonItem = (pokemon) => {
         <div className={style.pokeImg}>
           <img
             alt={pokemon.name}
-            width={100}
-            height={100}
+            width={120}
+            height={120}
             src={pokemon.sprites.other.dream_world.front_default}
           />
         </div>
         <div className={style.pokeName}>
           {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
         </div>
-        <div className={style.pokeWrapper}>
-          {pokemon.types.map((el) => {
-            return (
-              <div key={el.slot} className={`${style.pokeType} ${style[el.type.name]}`}>
-                {el.type.name}
-              </div>
-            );
-          })}
-        </div>
+        {/*<div className={style.pokeWrapper}>*/}
+        {/*  /!*${style[el.type.name]}*!/*/}
+        {/*  {pokemon.types.map((el) => {*/}
+        {/*    return (*/}
+        {/*      <div key={el.slot} className={style.pokeType}>*/}
+        {/*        {el.type.name}*/}
+        {/*      </div>*/}
+        {/*    );*/}
+        {/*  })}*/}
+        {/*</div>*/}
       </div>
     </div>
   );
