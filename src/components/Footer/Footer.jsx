@@ -13,9 +13,9 @@ export const Footer = (props) => {
   }
   return (
     <div className={style.footer}>
-      <div className={style.superButtonWrapper}>
+      <div className={style.footerButtonWrapper}>
         <button
-          className={style.superButton}
+          className={style.footerButton}
           disabled={isLoading}
           onClick={() => {
             return dispatch(loadNewPokemons(next));

@@ -8,6 +8,7 @@
     background-color: #242425;
 
 }
+
 .pokeItem{
     background-color: #242425;
     margin: 10px;
@@ -15,6 +16,7 @@
     color: #FFFFFF;
     border:2px solid #969292;
 }
+
 .pokeImg{
     display:flex;
     justify-content: center;
@@ -24,6 +26,7 @@
     max-width: 200px;
     height: 300px;
 }
+
 .pokeName{
     font-size: 20px ;
     display:flex;
@@ -32,12 +35,14 @@
     color: chocolate;
 
 }
+
 .pokeWrapper{
     display: flex;
     flex-wrap: wrap;
 
 
 }
+
 .pokeType{
     padding-bottom: 5px;
     margin: auto;
@@ -51,6 +56,7 @@
     align-items: center;
 
 }
+
 .table{
 
 }
