@@ -64,14 +64,12 @@
 
 .pokeType{
     margin: auto;
+    border:none;
     width: 44%;
     display: flex;
     text-align: center;
-    border-radius: 15%;
     align-items: center;
     justify-content: center;
-    background: #8F9780 ;
-    color: #3E3F30 ;
 }
 
 .separator{

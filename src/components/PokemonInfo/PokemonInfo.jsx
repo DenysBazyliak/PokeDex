@@ -1,14 +1,12 @@
 import React, {useState} from "react";
 import style from "./PokemonInfo.module.css";
 import {useSelector} from "react-redux";
-import {findStatName, hasher, reduceArray} from "../../utilities/utilities";
+import {hasher, reduceArray} from "../../utilities/utilities";
 
-const PokemonInfo = (props) => {
+const PokemonInfo = () => {
     let pokemon = useSelector((state) => state.pokeListReducer.pokemon);
     const [tableMode, setTableMode] = useState(false);
     let stats = reduceArray(pokemon?.stats);
-    // console.log("stats", stats);
-    // console.log("pokemon.stats", pokemon?.stats);
     const deactivateTableMode = () => {
         setTableMode(false);
     };
@@ -23,6 +21,7 @@ const PokemonInfo = (props) => {
                 <div className={style.pokeItem}>
                     <div className={style.pokeImg}>
                         <img
+                            alt={pokemon.name}
                             width={200}
                             height={350}
                             src={pokemon.sprites.other.dream_world.front_default}

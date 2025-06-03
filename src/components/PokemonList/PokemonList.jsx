@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import style from "./PokemonList.module.css";
 import PokemonItem from "./PokemonItem/PokemonItem";
-import { getPokemonsAPI } from "../../store/pokeListReducer";
+import { getPokemonAPI, getPokemonTypeAPI } from '../../store/pokeListReducer';
 import { useDispatch, useSelector } from "react-redux";
 import { Preloader } from "../../utilities/Preloader/Preloader";
 
@@ -11,14 +11,15 @@ const PokemonList = () => {
   const type = useSelector((state) => state.pokeListReducer.type);
 
   useEffect(() => {
-    dispatch(getPokemonsAPI());
+    dispatch(getPokemonAPI());
+    dispatch(getPokemonTypeAPI());
   }, []);
   
   let pokemonItems = pokemons
     .filter((el) =>
       type ? el.types.some((el) => el.type.name === type) : true
     )
-    .map((p) => <PokemonItem key={p.id} {...p} />);
+    .map((p) => <PokemonItem key={p.name} {...p} />);
   if (pokemons.length === 0) {
     return <Preloader />;
   }

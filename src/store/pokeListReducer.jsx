@@ -8,12 +8,14 @@ const SET_NEXT_URL = "SET_NEXT_URL";
 const ADD_POKEMONS = "ADD_POKEMONS";
 const ADD_POKEMON_TYPES = "ADD_POKEMON_TYPES";
 const SET_NEW_POKEMON = "SET_NEW_POKEMON";
+const ADD_POKEMON_TYPE_ICONS = "ADD_POKEMON_TYPE_ICONS";
 
 let initialState = {
     pokemons: [],
     pokemon: null,
     next: null,
     types: new Set(),
+    typeIcons: null,
     type: null,
     isLoading: false,
 };
@@ -34,6 +36,12 @@ export const setType = (currentType) => {
     return {
         type: SET_TYPE,
         currentType,
+    };
+};
+export const setTypeIcons = (typeIcons) => {
+    return {
+        type: ADD_POKEMON_TYPE_ICONS,
+        typeIcons,
     };
 };
 export const filterPokemons = (pokemons) => {
@@ -103,6 +111,11 @@ const pokeListReducer = (state = initialState, action) => {
                 ...state,
                 types: new Set([...state.types, ...action.types]),
             };
+        case ADD_POKEMON_TYPE_ICONS:
+            return {
+                ...state,
+                typeIcons: new Map(action.typeIcons),
+            };
         case SET_NEXT_URL:
             return {
                 ...state,
@@ -116,7 +129,6 @@ export const filterPokemonArray = (pokemons, type) => (dispatch) => {
     let filteredPokemons = pokemons.filter(
         (el) => el.types[0].type.name === type
     );
-    console.log("filteredPokemons", filteredPokemons);
     dispatch(filterPokemons(filteredPokemons));
 };
 
@@ -132,20 +144,49 @@ let typeSpreading = (pokemons) => (dispatch) => {
             });
         })
         .flat();
-    // let set = new Set(types);
-    // let allTypes = Array.from(set);
     dispatch(addPokemonTypes(types));
 };
-export const getPokemonsAPI = () => async (dispatch) => {
+let setPokemonTypeAPI =  (typeData) => async (dispatch) => {
+    let typeIcons = new Map();
+    let array = [];
+    let pokemonData = await Promise.all(
+       typeData.results.map((el) => {
+           return pokemonAPI.getPokemonInfo(el.url);
+       })
+    );
+    let icons = pokemonData.map((el)=>{
+        return el.sprites?.["generation-ix"]["scarlet-violet"].name_icon
+    })
+    for (let i = 0; i < icons.length; i++) {
+       array.push({
+           name: typeData.results[i].name,
+           url: icons[i],
+       })
+    }
+    if(array){
+       array.map((el) => {
+            return typeIcons.set(el.name, el.url);
+        })
+    } else{
+        return null
+    }
+    return dispatch(setTypeIcons(typeIcons));
+};
+export const getPokemonAPI = () => async (dispatch) => {
     let data = await pokemonAPI.getPokemonsAPI();
     dispatch(setNextUrl(data.next));
-    let pokemonsData = await Promise.all(
+    let pokemonData = await Promise.all(
         data.results.map((el) => {
             return pokemonAPI.getPokemonInfo(el.url);
         })
     );
-    dispatch(typeSpreading(pokemonsData));
-    dispatch(setPokemons(pokemonsData));
+    dispatch(typeSpreading(pokemonData));
+    dispatch(setPokemons(pokemonData));
+};
+
+export const getPokemonTypeAPI = () => async (dispatch) => {
+    let typeData = await pokemonAPI.getPokemonTypeAPI();
+    dispatch(setPokemonTypeAPI(typeData));
 };
 export const getNewPokemon = (pokemon) => {
     return setNewPokemon(pokemon);
@@ -154,15 +195,15 @@ export const getNewPokemon = (pokemon) => {
 export const loadNewPokemons = (next) => async (dispatch) => {
     dispatch(buttonSwitch(true));
 
-    let nextPokemonsData = await pokemonAPI.getNextPokemonAPI(next);
-    dispatch(setNextUrl(nextPokemonsData.next));
-    let nextPokemonsInfo = await Promise.all(
-        nextPokemonsData.results.map((el) => {
+    let nextPokemonData = await pokemonAPI.getNextPokemonAPI(next);
+    dispatch(setNextUrl(nextPokemonData.next));
+    let nextPokemonInfo = await Promise.all(
+        nextPokemonData.results.map((el) => {
             return pokemonAPI.getPokemonInfo(el.url);
         })
     );
-    dispatch(typeSpreading(nextPokemonsInfo));
-    dispatch(addPokemons(nextPokemonsInfo));
+    dispatch(typeSpreading(nextPokemonInfo));
+    dispatch(addPokemons(nextPokemonInfo));
     dispatch(buttonSwitch(false));
 };
 export default pokeListReducer;
