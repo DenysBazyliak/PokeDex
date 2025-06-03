@@ -48,7 +48,7 @@ const PokemonItem = (pokemon) => {
           {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
         </div>
       </div>
-      <div className={style.pokeTypeWrapper}>
+      <div className={`${style.pokeTypeWrapper} ${showType && style.pokeTypeWrapperShow}`}>
         {pokemon.types.map((el) => {
           if (i < typesLength) {
             i++;
