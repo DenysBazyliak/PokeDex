@@ -25,11 +25,9 @@ const Filter = () => {
   let types = fromSetToArray(
     useSelector((state) => state.pokeListReducer.types)
   );
-  console.log("types", types);
   let filterItems = types.map((el) => (
     <FilterItem handleSetType={handleSetType} handleShowFilter={handleShowFilter} handleShowCancel={handleShowCancel} key={el} el={el} />
   ));
-  console.log("filterItems", filterItems);
   return (
      <>
        <button className={style.filterButton} onClick={() => handleShowFilter()}>

@@ -27,7 +27,6 @@ const PokemonInfo = () => {
    const handleCopy = () => {
       setCopied(true);
       navigator.clipboard.writeText(pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)).then(() => setTimeout(() => setCopied(false), 2000));
-
    };
 
    if (!pokemon) {
@@ -38,7 +37,6 @@ const PokemonInfo = () => {
             <div onClick={() => handleSetNull()}
                  className={style.dimmingDiv}>
             </div>
-
             <div className={style.pokeInfoItemsWrapper}>
                <div className={`${style.pokeInfoItem} ${style.pokeItem} ${showInfo && style.pokeItemActive}`}>
                   <div className={style.pokeImg} onMouseEnter={() => setMouseEnter(true)}
