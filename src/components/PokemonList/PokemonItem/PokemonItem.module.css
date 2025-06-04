@@ -23,7 +23,9 @@
 
 .pokeItem:hover  {
     transform: scale(1.05);
+    cursor: pointer;
     transition: all .3s;
+    box-shadow: #0e0e0d 0 0 5px;
 }
 
 .pokeImg{
@@ -44,9 +46,8 @@
     background-color: #F7F2E5;
     border:2px solid #8F9780;
     border-radius: 15px;
-    padding: 10px;
-    width: 120px;
-    height: 30px ;
+    padding: 12px 10px;
+    width:fit-content;
     display: flex;
     align-items: center;
     position: relative;
@@ -74,6 +75,7 @@
 
 .separator{
     width: 0;
+    margin: 0 6px;
     height: 100%;
     border: 1px solid #8F9780;
 }
