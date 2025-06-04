@@ -1,34 +1,58 @@
 import React, { useState } from "react";
 import FilterItem from "./FilterItem/FilterItem";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from 'react-redux';
 import { fromSetToArray } from "../../../utilities/utilities";
 import style from "./Filter.module.css";
+import { setType } from '../../../store/pokeListReducer';
+
 const Filter = () => {
-  let [filterMode, setFilterMode] = useState(false);
-  let turnOnFilter = () => {
-    setFilterMode(true);
+  const [showFilter, setShowFilter] = useState(false);
+  const [showCancel, setShowCancel] = useState(false);
+
+  let dispatch = useDispatch();
+
+  const handleShowFilter = () => {
+    setShowFilter(!showFilter);
   };
-  let turnOffFilter = () => {
-    setFilterMode(false);
+  const handleShowCancel = (value) => {
+    value ? setShowCancel(value) : setShowCancel(false);
   };
+
+  const handleSetType = (type) => {
+    dispatch(setType(type));
+  };
+
   let types = fromSetToArray(
     useSelector((state) => state.pokeListReducer.types)
   );
   console.log("types", types);
   let filterItems = types.map((el) => (
-    <FilterItem turnOffFilter={turnOffFilter} key={el} el={el} />
+    <FilterItem handleSetType={handleSetType} handleShowFilter={handleShowFilter} handleShowCancel={handleShowCancel} key={el} el={el} />
   ));
   console.log("filterItems", filterItems);
-  return filterMode ? (
-    <div>
-      <div>
-        <div className={style.filterItemWrapper}>{filterItems}</div>
-      </div>
-    </div>
-  ) : (
-    <button className={style.filterButton} onClick={turnOnFilter}>
-      Filter
-    </button>
-  );
+  return (
+     <>
+       <button className={style.filterButton} onClick={() => handleShowFilter()}>
+         Filter
+       </button>
+       {
+         showFilter ? (
+              <div>
+                <div className={style.filterItemWrapper}>
+                  {filterItems}
+                  {showCancel && <div className={style.cancelButton}>
+                    <button onClick={() => {
+                      handleSetType(null)
+                      handleShowFilter()
+                      handleShowCancel(false)
+                    }} className={style.filterButton}> Cancel Selection</button>
+                  </div>}
+                </div>
+              </div>
+         ) : null
+       }
+     </>
+  )
+     ;
 };
 export default Filter;

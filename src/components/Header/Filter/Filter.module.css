@@ -1,44 +1,32 @@
-.filterItemWrapper{
+.filterItemWrapper {
+    padding: 20px;
+    background-color: #F7F2E5;
+    border:2px solid #8F9780;
+    border-radius: 15px;
     position: absolute;
     width: 300px;
-    height: 300px;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    background-color: #0e0e0d;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
+
 .filterButton {
-                                                       background: #000000;
-                                                       border: 1px solid #000000;
-                                                       border-radius: 6px;
-                                                       box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
-                                                       box-sizing: border-box;
-                                                       color: #FFFFFF;
-                                                       cursor: pointer;
-                                                       display: inline-block;
-                                                       font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
-                                                       font-size: 16px;
-                                                       font-weight: 800;
-                                                       line-height: 16px;
-                                                       min-height: 40px;
-                                                       outline: 0;
-                                                       padding: 12px 14px;
-                                                       text-align: center;
-                                                       text-rendering: geometricprecision;
-                                                       text-transform: none;
-                                                       user-select: none;
-                                                       -webkit-user-select: none;
-                                                       touch-action: manipulation;
-                                                       vertical-align: middle;
-                                                   }
-
-.filterButton:hover,
-.filterButton:active {
-
-    background-color: white;
-    background-position: 0 0;
-    color: #000000;
+    cursor: pointer;
+    width: max-content;
+    background-color: #8F9780;
+    color: #F7F2E5 ;
+    border: 2px solid #969292;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 0 auto;
 }
-
-.filterButton:active {
-    opacity: .5;
+.filterButton:hover{
+    background-color: #7D8570;
+}
+.cancelButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
