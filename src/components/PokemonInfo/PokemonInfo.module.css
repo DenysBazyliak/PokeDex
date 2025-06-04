@@ -53,10 +53,23 @@
     transform: translate(-50%,-50%);
 }
 
+.pokeIcon{
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+
+.pokeNameWrapper{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
 .pokeName{
+    padding: 20px;
     font-size: 24px ;
     display:flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     color: #3E3F30 ;
 }
