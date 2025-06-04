@@ -8,6 +8,7 @@ import store from "./store/store";
 import { Footer } from "./components/Footer/Footer";
 
 function App() {
+
   return (
     <Provider store={store}>
       <div className={style.app}>

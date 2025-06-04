@@ -41,7 +41,7 @@ const PokemonItem = (pokemon) => {
                dispatch(getNewPokemon(pokemon));
             }}
          >
-            <div className={style.pokeImg}>
+            <div>
                <img
                   alt={pokemon.name}
                   width={120}
