@@ -1,16 +1,3 @@
-.filterItemWrapper {
-    padding: 20px;
-    background-color: #F7F2E5;
-    border:2px solid #8F9780;
-    border-radius: 15px;
-    position: absolute;
-    width: 300px;
-    height: fit-content;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
 .filterButton {
     cursor: pointer;
     padding: 18px;
@@ -19,9 +6,25 @@
     border: 2px solid #969292;
     border-radius: 15px;
 }
+
 .filterButton:hover{
     background-color: #7D8570;
 }
+
+.filterItemWrapper {
+    padding: 20px;
+    background-color: #F7F2E5;
+    border:2px solid #8F9780;
+    border-radius: 15px;
+    position: fixed;
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    top:0;
+    transform: translateY(130px);
+}
+
 .cancelButton{
     display: flex;
     justify-content: center;

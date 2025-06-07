@@ -17,25 +17,27 @@ const PokemonType = ({ name, icon }) => {
 };
 
 const PokemonItem = (pokemon) => {
-
-   let i = 1;
-
+   const pokemonTypeIcons = useSelector((state) => state.pokeListReducer.typeIcons);
+   let dispatch = useDispatch();
    const typesLength = pokemon.types.length;
 
    const [showType, setShowType] = useState(false);
 
-   const pokemonTypeIcons = useSelector((state) => state.pokeListReducer.typeIcons);
+   const handleShowType = (value) => {
+      return setShowType(value);
+   };
 
-   let dispatch = useDispatch();
+   let i = 1;
+
    return (
       <div className={style.pokeItemWrapper}>
          <div
             className={style.pokeItem}
             onMouseEnter={() => {
-               setShowType(true);
+               handleShowType(true);
             }}
             onMouseLeave={() => {
-               setShowType(false);
+               handleShowType(false);
             }}
             onClick={() => {
                dispatch(getNewPokemon(pokemon));
