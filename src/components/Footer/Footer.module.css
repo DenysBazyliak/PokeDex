@@ -30,3 +30,22 @@
     padding-left: 10%;
     padding-right: 10%;
 }
+
+.scrollButton{
+    position: fixed;
+    z-index: 100;
+    right: 0;
+    bottom: 50px;
+    background-color: #8F9780;
+    color: #F7F2E5 ;
+    border: 2px solid #969292;
+    border-radius: 100%;
+    width: 80px;
+    height: 80px;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+.showScrollButton{
+    opacity: 1;
+    right: 100px;
+}
