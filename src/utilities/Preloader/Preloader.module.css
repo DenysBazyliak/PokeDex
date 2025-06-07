@@ -1,18 +1,19 @@
-.icon{
-    animation: flash 1000ms infinite;
-    width: 100px;
-    height: 100px;
-}
 .dimmingDiv{
-    z-index: 1000;
+    z-index: 1005;
     display: flex;
     justify-content: center;
     align-items: center;
     position: fixed;
+    bottom: 0;
     width: 100vw;
     height: 100vh;
     background: black;
-    opacity: 0.5;
+    opacity: 0.8;
+}
+.icon{
+    animation: flash 1000ms infinite;
+    width: 100px;
+    height: 100px;
 }
 @keyframes flash {
     0%, 50%, 100%{
