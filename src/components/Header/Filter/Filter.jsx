@@ -42,12 +42,12 @@ const Filter = () => {
                <div
                   className={`${style.filterItemWrapper} ${showFilter && style.filterItemWrapperShow}`}>
                   {filterItems}
-                  {showCancel && <div className={style.cancelButton}>
+                  {showCancel && <div className={style.cancelButtonWrapper}>
                      <button onClick={() => {
                         handleShowFilter();
                         handleSetType(null);
                         handleShowCancel(false);
-                     }} className={style.filterButton}> Cancel Selection
+                     }} className={`${style.filterButton} ${style.cancelButton}`}> CANCEL SELECTION
                      </button>
                   </div>}
                </div>

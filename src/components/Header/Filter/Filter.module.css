@@ -25,9 +25,17 @@
     transform: translateY(130px);
 }
 
-.cancelButton{
+.cancelButtonWrapper{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+}
+
+.cancelButton{
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    padding: 12px;
+    width: max-content;
+    height: fit-content;
 }
