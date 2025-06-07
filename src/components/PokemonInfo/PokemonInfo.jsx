@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import style from './PokemonInfo.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { hasher } from '../../utilities/utilities';
 import { getNewPokemon } from '../../store/pokeListReducer';
 import { useScreenContextProvider } from '../../context/ScreenContext';
 

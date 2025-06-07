@@ -14,7 +14,6 @@ export const Footer = () => {
    const dispatch = useDispatch();
 
    const [showButton, setShowButton] = useState(false);
-   const [smallScreen, setSmallScreen] = useState(false);
 
    useEffect(() => {
       const handleScroll = () => {
