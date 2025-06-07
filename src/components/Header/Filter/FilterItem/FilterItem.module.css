@@ -3,7 +3,6 @@
     cursor: pointer;
     padding: 10px;
     margin: auto;
-    display: flex;
     text-align: center;
     border-radius: 20%;
     align-items: center;
@@ -11,4 +10,28 @@
 }
 .pokeType:hover{
     transform: scale(1.1); ;
+}
+
+
+
+@media screen and (max-width: 650px) {
+    .pokeType{
+        padding: 4px;
+    }
+}
+@media screen and (max-width: 900px) {
+    .pokeType{
+        padding: 6px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .pokeType{
+        padding: 8px;
+    }
+}
+@media screen and (max-width: 1660px) {
+    .pokeType{
+        padding: 8px;
+    }
 }

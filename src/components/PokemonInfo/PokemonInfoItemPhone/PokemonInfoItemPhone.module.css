@@ -1,12 +1,3 @@
-.dimmingDiv {
-    z-index: 1000;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-}
 
 .pokeInfoItemPhone{
     position: fixed;
@@ -40,21 +31,6 @@
     z-index: 1001;
     width: 100%;
     height: 100%;
-}
-
-.pokeInfoItem{
-    position: fixed;
-    width: 280px;
-    height: 280px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 50px 20px;
-    background-color: #F7F2E5;
-    border:2px solid #8F9780;
-    border-radius: 15px;
-    opacity:0;
 }
 
 .pokeItem{
@@ -180,46 +156,3 @@ td{
     }
 }
 
-@media only screen and (min-width: 1200px) {
-    .pokeInfoItem{
-        width: 330px;
-        height: 330px;
-    }
-    .pokeItemActive{
-        opacity:1;
-        transform: translate(30%,-50%);
-    }
-    .pokeTableActive{
-        opacity:1;
-        transform: translate(-30%,-50%);
-    }
-    .pokeName{
-         padding: 25px;
-         font-size: 32px ;
-     }
-}
-
-@media only screen and (min-width: 1660px) {
-    .pokeInfoItem{
-        width: 500px;
-        height: 500px;
-    }
-    .pokeItemActive{
-        opacity:1;
-        transform: translate(35%,-50%);
-    }
-    .pokeTableActive{
-        opacity:1;
-        transform: translate(-35%,-50%);
-    }
-    .pokeName{
-        padding: 30px;
-        font-size: 40px ;
-    }
-    th{
-        font-size: 24px;
-    }
-    td{
-        font-size: 26px;
-    }
-}

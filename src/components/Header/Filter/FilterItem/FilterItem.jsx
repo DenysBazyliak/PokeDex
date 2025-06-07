@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 
 const FilterItem = (props) => {
    const pokemonTypeIcons = useSelector((state) => state.pokeListReducer.typeIcons);
+
    return (
       <>
          <div className={style.pokeType} onClick={() => {
@@ -14,8 +15,8 @@ const FilterItem = (props) => {
          }}>
             <img
                alt={props.el}
-               width={75}
-               height={35}
+               width={props.isPhone ? 60 : props.isTablet ? 65 : props.isDesktopOrLaptop ? 70 : props.isBigScreen ? 85 : 100}
+               height={props.isPhone ? 26 : props.isTablet ? 30 : props.isDesktopOrLaptop ? 35 : props.isBigScreen ? 40 : 45}
                src={pokemonTypeIcons?.get(props.el)}
             />
          </div>

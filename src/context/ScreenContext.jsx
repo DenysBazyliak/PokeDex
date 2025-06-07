@@ -4,9 +4,11 @@ import { useMediaQuery } from 'react-responsive';
 const ScreenContext = createContext();
 
 export const ScreenContextProvider = ({ children }) => {
-
-   const isTabletOrPhone = useMediaQuery({
-      query: '(max-width: 650px)',
+   const isPhone = useMediaQuery({
+      query: '(max-width: 700px)',
+   });
+   const isTablet = useMediaQuery({
+      query: '(max-width: 1000px)',
    });
    const isDesktopOrLaptop  = useMediaQuery({
       query: '(max-width: 1200px)',
@@ -16,7 +18,7 @@ export const ScreenContextProvider = ({ children }) => {
    });
 
    return (
-      <ScreenContext.Provider value={{ isTabletOrPhone, isDesktopOrLaptop, isBigScreen }}>
+      <ScreenContext.Provider value={{ isPhone, isTablet, isDesktopOrLaptop, isBigScreen }}>
          {children}
       </ScreenContext.Provider>
    );

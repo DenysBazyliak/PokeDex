@@ -5,7 +5,7 @@ import { getPokemonAPI, getPokemonTypeAPI } from '../../store/pokeListReducer';
 import { useDispatch, useSelector } from "react-redux";
 import { Preloader } from "../../utilities/Preloader/Preloader";
 
-const PokemonList = () => {
+export const PokemonList = () => {
   const dispatch = useDispatch();
   const pokemons = useSelector((state) => state.pokeListReducer.pokemons);
   const type = useSelector((state) => state.pokeListReducer.type);
@@ -30,4 +30,3 @@ const PokemonList = () => {
     </div>
   );
 };
-export default PokemonList;
