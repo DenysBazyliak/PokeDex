@@ -2,17 +2,17 @@
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
-    align-items: center ;
+    align-items: center;
 }
 
 .pokeItem {
     z-index: 2;
     background-color: #F7F2E5;
-    border:2px solid #8F9780;
+    border: 2px solid #8F9780;
     border-radius: 15px;
     padding: 20px;
     margin: 20px;
-    width:200px;
+    width: 200px;
     height: 180px;
     transition: all .3s;
     display: flex;
@@ -21,33 +21,59 @@
     align-items: center;
 }
 
-.pokeItem:hover  {
+.pokeItem:hover {
     transform: scale(1.05);
     cursor: pointer;
     transition: all .3s;
     box-shadow: #0e0e0d 0 0 5px;
 }
 
-.pokeImg{
-    display:flex;
-    justify-content: space-evenly;
-    align-items: center;
+@media only screen and (max-width: 600px) {
+    .pokeItem {
+        width: 160px;
+        height: 160px;
+    }
+    .pokeImgWrapper img {
+        width: 130px;
+        height: 140px;
+    }
 }
 
-.pokeName{
-    font-size: 20px ;
-    display:flex;
+@media only screen and (min-width: 1200px) {
+    .pokeItem {
+        width: 240px;
+        height: 200px;
+    }
+    .pokeImgWrapper img {
+        width: 180px;
+        height: 170px;
+    }
+}
+@media only screen and (min-width: 1660px) {
+    .pokeItem {
+        width: 270px;
+        height: 230px;
+    }
+    .pokeImgWrapper img {
+        width: 220px;
+        height: 190px;
+    }
+}
+
+.pokeName {
+    font-size: 20px;
+    display: flex;
     justify-content: center;
     align-items: center;
-    color: #3E3F30 ;
+    color: #3E3F30;
 }
 
-.pokeTypeWrapper{
+.pokeTypeWrapper {
     background-color: #F7F2E5;
-    border:2px solid #8F9780;
+    border: 2px solid #8F9780;
     border-radius: 15px;
     padding: 12px 10px;
-    width:fit-content;
+    width: fit-content;
     display: flex;
     align-items: center;
     position: relative;
@@ -56,15 +82,15 @@
     opacity: 0;
 }
 
-.pokeTypeWrapperShow{
+.pokeTypeWrapperShow {
     top: -15px;
     z-index: 1;
     opacity: 1;
 }
 
-.pokeType{
+.pokeType {
     margin: auto;
-    border:none;
+    border: none;
     width: 44%;
     display: flex;
     text-align: center;
@@ -72,7 +98,7 @@
     justify-content: center;
 }
 
-.separator{
+.separator {
     width: 0;
     margin: 0 6px;
     height: 100%;

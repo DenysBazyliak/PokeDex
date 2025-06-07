@@ -18,7 +18,7 @@ const PokemonType = ({ name, icon }) => {
 
 const PokemonItem = (pokemon) => {
    const pokemonTypeIcons = useSelector((state) => state.pokeListReducer.typeIcons);
-   let dispatch = useDispatch();
+   const dispatch = useDispatch();
    const typesLength = pokemon.types.length;
 
    const [showType, setShowType] = useState(false);
@@ -43,7 +43,7 @@ const PokemonItem = (pokemon) => {
                dispatch(getNewPokemon(pokemon));
             }}
          >
-            <div>
+            <div className={style.pokeImgWrapper}>
                <img
                   alt={pokemon.name}
                   width={140}
