@@ -25,8 +25,8 @@ const PokemonList = () => {
     return <Preloader />;
   }
   return (
-    <div className={style.pokemonList}>
-      <div className={style.listWrapper}>{pokemonItems}</div>
+    <div className={style.pokeList}>
+      <div className={style.pokeListWrapper}>{pokemonItems}</div>
     </div>
   );
 };

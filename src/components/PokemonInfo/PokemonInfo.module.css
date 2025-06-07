@@ -59,13 +59,13 @@
     cursor: pointer;
 }
 
-
 .pokeNameWrapper{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     width: 100%;
 }
+
 .pokeName{
     padding: 20px;
     font-size: 24px ;
