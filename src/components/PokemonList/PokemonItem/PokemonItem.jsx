@@ -46,8 +46,8 @@ const PokemonItem = (pokemon) => {
             <div>
                <img
                   alt={pokemon.name}
-                  width={120}
-                  height={120}
+                  width={140}
+                  height={140}
                   src={pokemon.sprites.other['official-artwork'].front_default}
                />
             </div>
