@@ -7,6 +7,7 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
 }
+
 .pokeInfoItemsWrapper{
     position: fixed;
     z-index: 1001;
@@ -26,6 +27,7 @@
     background-color: #F7F2E5;
     border:2px solid #8F9780;
     border-radius: 15px;
+    opacity:0;
 }
 
 .pokeItem{
@@ -36,12 +38,14 @@
 }
 
 .pokeItemActive{
+    opacity:1;
     top:50%;
     left:50%;
     transform: translate(50%,-50%);
 }
 
 .pokeTable{
+
     top:50%;
     right:50%;
     transform: translate(-200%,-50%);
@@ -49,6 +53,8 @@
 }
 
 .pokeTableActive{
+    transition: all .3s;
+    opacity:1;
     top:50%;
     right:50%;
     transform: translate(-50%,-50%);
