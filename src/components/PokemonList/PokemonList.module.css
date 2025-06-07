@@ -2,12 +2,9 @@
     padding-left: 20px;
     padding-top: 15px;
     margin: 20px;
-    grid-area: pokemonList;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-
-
 }
 .pokemonList{
     margin-bottom: 70px;

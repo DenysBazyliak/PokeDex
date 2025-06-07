@@ -7,8 +7,10 @@ export const Header = () => {
 
   return (
      <div className={style.header}>
-        <h1 className={style.h1}>PokeDex</h1>
-        <Filter />
+        <div className={style.headerWrapper}>
+           <h1 className={style.h1}>PokeDex</h1>
+           <Filter />
+        </div>
      </div>
   );
 };

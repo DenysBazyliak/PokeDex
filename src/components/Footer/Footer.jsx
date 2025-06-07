@@ -6,6 +6,7 @@ import { Preloader } from "../../utilities/Preloader/Preloader";
 export const Footer = () => {
   const next = useSelector((state) => state.pokeListReducer.next);
   const isLoading = useSelector((state) => state.pokeListReducer.isLoading);
+  console.log('isLoading', isLoading);
   const dispatch = useDispatch();
 
   if (isLoading) {

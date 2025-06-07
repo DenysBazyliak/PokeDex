@@ -21,6 +21,7 @@ const PokemonList = () => {
     )
     .map((p) => <PokemonItem key={p.name} {...p} />);
   if (pokemons.length === 0) {
+    //this need to be fixed asap
     return <Preloader />;
   }
   return (

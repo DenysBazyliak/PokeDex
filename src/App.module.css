@@ -1,14 +1,8 @@
 .app{
-    display: grid;
     width: 100%;
     min-height: 100vh;
     margin: 0 auto;
     background: #A8B39C;
-    grid-template-areas:
-    'header'
-    'pokemonList'
-    'footer';
-
 }
 
 
