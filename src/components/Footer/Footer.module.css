@@ -72,12 +72,14 @@
     .footerButton {
         width: 75px;
         height: 75px;
+        bottom: 20px;
     }
 
     .scrollButton {
-        width: 55px;
-        height: 55px;
+        width: 40px;
+        height: 40px;
         right: 20px;
+        bottom: 27px;
     }
 }
 
@@ -88,8 +90,8 @@
         font-size: 20px;
     }
     .scrollButton {
-        width: 70px;
-        height: 70px;
+        width: 55px;
+        height: 55px;
     }
 }
 
@@ -97,7 +99,7 @@
     .footerButton {
         font-size: 28px;
         width: 650px;
-        height: 80px;
+        height: 70px;
     }
     .scrollButton {
         width: 80px;
