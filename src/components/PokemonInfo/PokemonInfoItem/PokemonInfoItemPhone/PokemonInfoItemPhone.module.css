@@ -1,0 +1,86 @@
+.pokeInfoItemPhoneWrapper{
+    position: fixed;
+    bottom: 0;
+    left: 30px;
+    right: 30px;
+    height: 500px;
+    padding: 20px 30px 10px 30px;
+    background: #f7f2e5;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: all .3s;
+    touch-action: none;
+    overflow-y: auto ;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.pokeItem{
+    top:50%;
+    left:50%;
+    transform: translate(200%,-50%);
+    transition: all .3s;
+}
+
+.pokeItemActive{
+    opacity:1;
+    top:50%;
+    left:50%;
+    transform: translate(25%,-50%);
+}
+
+.pokeTable{
+    top:50%;
+    right:50%;
+    transform: translate(-200%,-50%);
+    transition: all .3s;
+}
+
+.pokeTableActive{
+    transition: all .3s;
+    opacity:1;
+    top:50%;
+    right:50%;
+    transform: translate(-25%,-50%);
+}
+
+.pokeIcon{
+    margin: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pokeNameWrapper{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+.pokeName{
+    padding: 18px 0;
+    font-size: 24px ;
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: #3E3F30 ;
+}
+
+.pokeWrapper{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pokeImgWrapper{
+    margin-bottom: 10px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
