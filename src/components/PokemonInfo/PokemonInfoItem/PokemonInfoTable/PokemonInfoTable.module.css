@@ -25,3 +25,21 @@ td{
     text-align: center;
     font-size: 16px;
 }
+
+@media only screen and (max-width: 1000px) {
+    th{
+        font-size: 11px;
+    }
+    td{
+        font-size: 12px;
+    }
+}
+
+@media only screen and (min-width: 1660px) {
+    th{
+        font-size: 24px;
+    }
+    td{
+        font-size: 26px;
+    }
+}
