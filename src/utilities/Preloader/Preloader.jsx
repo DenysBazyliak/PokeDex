@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./Preloader.module.css";
 import pokemonIcon from "./Icon/pokemon-icon.png";
+
 export const Preloader = () => {
   return (
     <div className={style.dimmingDiv}>

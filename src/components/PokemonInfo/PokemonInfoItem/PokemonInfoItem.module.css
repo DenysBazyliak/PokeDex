@@ -34,20 +34,6 @@
     transform: translate(25%,-50%);
 }
 
-.pokeTable{
-    top:50%;
-    right:50%;
-    transform: translate(-200%,-50%);
-    transition: all .3s;
-}
-
-.pokeTableActive{
-    transition: all .3s;
-    opacity:1;
-    top:50%;
-    right:50%;
-    transform: translate(-25%,-50%);
-}
 
 .pokeIcon{
     margin-right: 10px;
@@ -80,6 +66,21 @@
     display:flex;
     justify-content: center;
     align-items: center;
+}
+
+.pokeTable{
+    top:50%;
+    right:50%;
+    transform: translate(-200%,-50%);
+    transition: all .3s;
+}
+
+.pokeTableActive{
+    transition: all .3s;
+    opacity:1;
+    top:50%;
+    right:50%;
+    transform: translate(-25%,-50%);
 }
 
 .table{

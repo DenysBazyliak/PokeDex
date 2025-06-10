@@ -1,9 +1,14 @@
 import style from './PokemonInfoItem.module.css';
 import { hasher } from '../../../utilities/utilities';
 import React from 'react';
+import { PokemonInfoTable } from './PokemonInfoTable/PokemonInfoTable';
+import { PokemonInfoItemPhone } from './PokemonInfoItemPhone/PokemonInfoItemPhone';
 
-export const PokemonInfoItem = ({handleMouse, handleCopy, pokemon, showInfo, mouseEnter, copied, isPhone, isTablet, isDesktopOrLaptop, isBigScreen }) => {
-  return (
+export const PokemonInfoItem = ({handleMouse, handleCopy, pokemon, showInfo, mouseEnter, copied, isPhone, isTablet, isDesktopOrLaptop, isBigScreen, handleSetNull }) => {
+  if(isPhone){
+     return PokemonInfoItemPhone({handleMouse, handleCopy, pokemon, copied, isPhone, handleSetNull, showInfo});
+  } else {
+     return (
      <>
         <div className={style.pokeInfoItemsWrapper}>
            <div
@@ -12,8 +17,8 @@ export const PokemonInfoItem = ({handleMouse, handleCopy, pokemon, showInfo, mou
                    onMouseEnter={() => handleMouse(true)}
                    onMouseLeave={() => handleMouse(false)}>
                  <img alt={pokemon.name}
-                      width={isPhone ? 150 : isTablet ? 160 : isDesktopOrLaptop ? 220 : isBigScreen ? 260 : 390}
-                      height={isPhone ? 150 : isTablet ? 160 : isDesktopOrLaptop ? 220 : isBigScreen ? 260 : 390}
+                      width={ isTablet ? 160 : isDesktopOrLaptop ? 220 : isBigScreen ? 260 : 390}
+                      height={ isTablet ? 160 : isDesktopOrLaptop ? 220 : isBigScreen ? 260 : 390}
                       src={`${mouseEnter ? pokemon.sprites.versions['generation-v']['black-white'].animated.front_shiny : pokemon.sprites.other.showdown.front_shiny}`} />
               </div>
               <div className={style.pokeName}>
@@ -30,28 +35,9 @@ export const PokemonInfoItem = ({handleMouse, handleCopy, pokemon, showInfo, mou
            </div>
            <div
               className={`${style.pokeInfoItem} ${style.pokeTable} ${showInfo && style.pokeTableActive}`}>
-              <table className={style.table}>
-                 <tbody className={style.tableBody}>
-                 <tr>
-                    <th>Height</th>
-                    <td>{pokemon.height / 10} m</td>
-                 </tr>
-                 <tr>
-                    <th>Weight</th>
-                    <td>{pokemon.weight / 10} kg</td>
-                 </tr>
-                 {pokemon.stats.map((el) => {
-                    return (
-                       <tr key={el.stat.name}>
-                          <th>{el.stat.name.charAt(0).toUpperCase() + el.stat.name.slice(1)}</th>
-                          <td>{el.base_stat}</td>
-                       </tr>
-                    );
-                 })}
-                 </tbody>
-              </table>
+              <PokemonInfoTable pokemon={pokemon} />
            </div>
         </div>
      </>
-  )
+  )}
 }

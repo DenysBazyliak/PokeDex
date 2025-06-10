@@ -5,7 +5,6 @@ import { getNewPokemon } from '../../store/pokeListReducer';
 import { useScreenContextProvider } from '../../context/ScreenContext';
 
 import { PokemonInfoItem } from './PokemonInfoItem/PokemonInfoItem';
-import { PokemonInfoItemPhone } from './PokemonInfoItemPhone/PokemonInfoItemPhone';
 
 
 export const PokemonInfo = () => {
@@ -43,24 +42,15 @@ export const PokemonInfo = () => {
       return (
          <>
             <div onClick={() => handleSetNull()}
-                 className={style.dimmingDiv}>
+                 className={`${style.dimmingDiv}`}>
             </div>
-            {
-               isPhone ?
-                  (
-                     <PokemonInfoItemPhone handleMouse={handleMouse} handleCopy={handleCopy} pokemon={pokemon}
-                                           showInfo={showInfo} mouseEnter={mouseEnter} copied={copied} isPhone={isPhone}
-                                           isTablet={isTablet} />
-                  )
-                  : (
-                     <PokemonInfoItem handleMouse={handleMouse} handleCopy={handleCopy} pokemon={pokemon}
-                                      showInfo={showInfo} mouseEnter={mouseEnter} copied={copied} isPhone={isPhone}
-                                      isTablet={isTablet} isDesktopOrLaptop={isDesktopOrLaptop}
-                                      isBigScreen={isBigScreen} />
-                  )
-            }
-         </>
 
+            <PokemonInfoItem handleSetNull={handleSetNull} handleMouse={handleMouse} handleCopy={handleCopy}
+                             pokemon={pokemon}
+                             showInfo={showInfo} mouseEnter={mouseEnter} copied={copied} isPhone={isPhone}
+                             isTablet={isTablet} isDesktopOrLaptop={isDesktopOrLaptop}
+                             isBigScreen={isBigScreen} />
+         </>
       );
    }
 };
